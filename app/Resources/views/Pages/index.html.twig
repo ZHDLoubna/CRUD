@@ -1,0 +1,45 @@
+{{ include ('Pages/inc/header.html.twig') }}
+
+<div class="container">
+<div class="row">
+    <a href="{{ absolute_url(asset('')) }}app_dev.php/post/create" class="btn btn-primary btn sm" ,style ="margin-top:40px">Create View</a>
+
+</div>
+    <h3>View Post</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+        <tr class="table-active">
+            <th scope="row">{{post.id}}</th>
+            <td>{{post.title}}</td>
+            <td>{{post.description}}</td>
+            <td>
+                <a href="{{ absolute_url(asset('')) }}app_dev.php/post/show/{{post.id}}" class="btn btn-primary">View</a>
+                <a href="{{ absolute_url(asset('')) }}app_dev.php/post/edit/{{post.id}}" class="btn btn-success">Edit</a>
+                <a href="{{ absolute_url(asset('')) }}app_dev.php/post/delete/{{post.id}}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+            {% else %}
+            <tr>
+                <td>No Records Found!!</td>
+            </tr>
+    {% endfor %}
+
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
